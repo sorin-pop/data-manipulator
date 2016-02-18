@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:entryWrapperReader xmlns:ns2="com.liferay.tool.datamanipulator.entryreader">
+	<entry name="blogs-entry">
+		<method type="add">
+			<clazz>com.liferay.portlet.blogs.service.BlogsEntryLocalServiceUtil</clazz>
+			<method-name>addEntry</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="content" type="java.lang.String" />
+				<parameter name="displayDateMonth" type="int" />
+				<parameter name="displayDateDay" type="int" />
+				<parameter name="displayDateYear" type="int" />
+				<parameter name="displayDateHour" type="int" />
+				<parameter name="displayDateMinute" type="int" />
+				<parameter name="allowPingbacks" type="boolean" />
+				<parameter name="allowTrackbacks" type="boolean" />
+				<parameter name="trackbacks" type="java.lang.String[]" />
+				<parameter name="smallImage" type="boolean" />
+				<parameter name="smallImageURL" type="java.lang.String" />
+				<parameter name="smallImageFileName" type="java.lang.String" />
+				<parameter name="smallImageInputStream" type="java.io.InputStream" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.blogs.service.BlogsEntryLocalServiceUtil</clazz>
+			<method-name>updateEntry</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="entryId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="content" type="java.lang.String" />
+				<parameter name="displayDateMonth" type="int" />
+				<parameter name="displayDateDay" type="int" />
+				<parameter name="displayDateYear" type="int" />
+				<parameter name="displayDateHour" type="int" />
+				<parameter name="displayDateMinute" type="int" />
+				<parameter name="allowPingbacks" type="boolean" />
+				<parameter name="allowTrackbacks" type="boolean" />
+				<parameter name="trackbacks" type="java.lang.String[]" />
+				<parameter name="smallImage" type="boolean" />
+				<parameter name="smallImageURL" type="java.lang.String" />
+				<parameter name="smallImageFileName" type="java.lang.String" />
+				<parameter name="smallImageInputStream" type="java.io.InputStream" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="bookmarks-entry">
+		<method type="add">
+			<clazz>com.liferay.portlet.bookmarks.service.BookmarksEntryLocalServiceUtil</clazz>
+			<method-name>addEntry</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="url" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.bookmarks.service.BookmarksEntryLocalServiceUtil</clazz>
+			<method-name>updateEntry</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="entryId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="url" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="bookmarks-folder">
+		<method type="add">
+			<clazz>com.liferay.portlet.bookmarks.service.BookmarksFolderLocalServiceUtil</clazz>
+			<method-name>addFolder</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="parentFolderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.bookmarks.service.BookmarksFolderLocalServiceUtil</clazz>
+			<method-name>updateFolder</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="parentFolderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="mergeWithParentFolder" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="calendar-event">
+		<method type="add">
+			<clazz>com.liferay.portlet.calendar.service.CalEventLocalServiceUtil</clazz>
+			<method-name>addEvent</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="location" type="java.lang.String" />
+				<parameter name="startDateMonth" type="int" />
+				<parameter name="startDateDay" type="int" />
+				<parameter name="startDateYear" type="int" />
+				<parameter name="startDateHour" type="int" />
+				<parameter name="startDateMinute" type="int" />
+				<parameter name="endDateMonth" type="int" />
+				<parameter name="endDateDay" type="int" />
+				<parameter name="endDateYear" type="int" />
+				<parameter name="durationHour" type="int" />
+				<parameter name="durationMinute" type="int" />
+				<parameter name="allDay" type="boolean" />
+				<parameter name="timeZoneSensitive" type="boolean" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="repeating" type="boolean" />
+				<parameter name="recurrence" type="com.liferay.portal.kernel.cal.TZSRecurrence" />
+				<parameter name="remindBy" type="int" />
+				<parameter name="firstReminder" type="int" />
+				<parameter name="secondReminder" type="int" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.calendar.service.CalEventLocalServiceUtil</clazz>
+			<method-name>updateEvent</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="eventId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="location" type="java.lang.String" />
+				<parameter name="startDateMonth" type="int" />
+				<parameter name="startDateDay" type="int" />
+				<parameter name="startDateYear" type="int" />
+				<parameter name="startDateHour" type="int" />
+				<parameter name="startDateMinute" type="int" />
+				<parameter name="endDateMonth" type="int" />
+				<parameter name="endDateDay" type="int" />
+				<parameter name="endDateYear" type="int" />
+				<parameter name="durationHour" type="int" />
+				<parameter name="durationMinute" type="int" />
+				<parameter name="allDay" type="boolean" />
+				<parameter name="timeZoneSensitive" type="boolean" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="repeating" type="boolean" />
+				<parameter name="recurrence" type="com.liferay.portal.kernel.cal.TZSRecurrence" />
+				<parameter name="remindBy" type="int" />
+				<parameter name="firstReminder" type="int" />
+				<parameter name="secondReminder" type="int" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="category">
+		<method type="add">
+			<clazz>com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil</clazz>
+			<method-name>addCategory</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="parentCategoryId" type="long" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="vocabularyId" type="long" />
+				<parameter name="categoryProperties" type="java.lang.String[]" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil</clazz>
+			<method-name>updateCategory</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="categoryId" type="long" />
+				<parameter name="parentCategoryId" type="long" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="vocabularyId" type="long" />
+				<parameter name="categoryProperties" type="java.lang.String[]" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="documents-and-media-file">
+		<method type="add">
+			<clazz>com.liferay.portlet.documentlibrary.service.DLAppServiceUtil</clazz>
+			<method-name>addFileEntry</method-name>
+			<parameter-list>
+				<parameter name="repositoryId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="sourceFileName" type="java.lang.String" />
+				<parameter name="mimeType" type="java.lang.String" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="changeLog" type="java.lang.String" />
+				<parameter name="file" type="java.io.File" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.documentlibrary.service.DLAppServiceUtil</clazz>
+			<method-name>updateFileEntry</method-name>
+			<parameter-list>
+				<parameter name="fileEntryId" type="long" />
+				<parameter name="sourceFileName" type="java.lang.String" />
+				<parameter name="mimeType" type="java.lang.String" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="changeLog" type="java.lang.String" />
+				<parameter name="majorVersion" type="boolean" />
+				<parameter name="file" type="java.io.File" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="documents-and-media-folder">
+		<method type="add">
+			<clazz>com.liferay.portlet.documentlibrary.service.DLAppServiceUtil</clazz>
+			<method-name>addFolder</method-name>
+			<parameter-list>
+				<parameter name="repositoryId" type="long" />
+				<parameter name="parentFolderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.documentlibrary.service.DLAppServiceUtil</clazz>
+			<method-name>updateFolder</method-name>
+			<parameter-list>
+				<parameter name="folderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="journal-article">
+		<method type="add">
+			<clazz>com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil</clazz>
+			<method-name>addArticle</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="classNameId" type="long" />
+				<parameter name="classPK" type="long" />
+				<parameter name="articleId" type="java.lang.String" />
+				<parameter name="autoArticleId" type="boolean" />
+				<parameter name="version" type="double" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="LocalizedContent" type="java.lang.String" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="ddmStructureKey" type="java.lang.String" />
+				<parameter name="ddmTemplateKey" type="java.lang.String" />
+				<parameter name="layoutUuid" type="java.lang.String" />
+				<parameter name="displayDateMonth" type="int" />
+				<parameter name="displayDateDay" type="int" />
+				<parameter name="displayDateYear" type="int" />
+				<parameter name="displayDateHour" type="int" />
+				<parameter name="displayDateMinute" type="int" />
+				<parameter name="expirationDateMonth" type="int" />
+				<parameter name="expirationDateDay" type="int" />
+				<parameter name="expirationDateYear" type="int" />
+				<parameter name="expirationDateHour" type="int" />
+				<parameter name="expirationDateMinute" type="int" />
+				<parameter name="neverExpire" type="boolean" />
+				<parameter name="reviewDateMonth" type="int" />
+				<parameter name="reviewDateDay" type="int" />
+				<parameter name="reviewDateYear" type="int" />
+				<parameter name="reviewDateHour" type="int" />
+				<parameter name="reviewDateMinute" type="int" />
+				<parameter name="neverReview" type="boolean" />
+				<parameter name="indexable" type="boolean" />
+				<parameter name="smallImage" type="boolean" />
+				<parameter name="smallImageURL" type="java.lang.String" />
+				<parameter name="smallImageFile" type="java.io.File" />
+				<parameter name="images" type="java.util.Map&lt;java.lang.String, byte[]&gt;" />
+				<parameter name="articleURL" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil</clazz>
+			<method-name>updateArticle</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="articleId" type="java.lang.String" />
+				<parameter name="version" type="double" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="LocalizedContent" type="java.lang.String" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="ddmStructureKey" type="java.lang.String" />
+				<parameter name="ddmTemplateKey" type="java.lang.String" />
+				<parameter name="layoutUuid" type="java.lang.String" />
+				<parameter name="displayDateMonth" type="int" />
+				<parameter name="displayDateDay" type="int" />
+				<parameter name="displayDateYear" type="int" />
+				<parameter name="displayDateHour" type="int" />
+				<parameter name="displayDateMinute" type="int" />
+				<parameter name="expirationDateMonth" type="int" />
+				<parameter name="expirationDateDay" type="int" />
+				<parameter name="expirationDateYear" type="int" />
+				<parameter name="expirationDateHour" type="int" />
+				<parameter name="expirationDateMinute" type="int" />
+				<parameter name="neverExpire" type="boolean" />
+				<parameter name="reviewDateMonth" type="int" />
+				<parameter name="reviewDateDay" type="int" />
+				<parameter name="reviewDateYear" type="int" />
+				<parameter name="reviewDateHour" type="int" />
+				<parameter name="reviewDateMinute" type="int" />
+				<parameter name="neverReview" type="boolean" />
+				<parameter name="indexable" type="boolean" />
+				<parameter name="smallImage" type="boolean" />
+				<parameter name="smallImageURL" type="java.lang.String" />
+				<parameter name="smallImageFile" type="java.io.File" />
+				<parameter name="images" type="java.util.Map&lt;java.lang.String, byte[]&gt;" />
+				<parameter name="articleURL" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="journal-folder">
+		<method type="add">
+			<clazz>com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil</clazz>
+			<method-name>addFolder</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="parentFolderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.journal.service.JournalFolderLocalServiceUtil</clazz>
+			<method-name>updateFolder</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="folderId" type="long" />
+				<parameter name="parentFolderId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="mergeWithParentFolder" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="layout-entry">
+		<method type="add">
+			<clazz>com.liferay.portal.service.LayoutLocalServiceUtil</clazz>
+			<method-name>addLayout</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="privateLayout" type="boolean" />
+				<parameter name="parentLayoutId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="hidden" type="boolean" />
+				<parameter name="friendlyURL" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portal.service.LayoutLocalServiceUtil</clazz>
+			<method-name>updateLayout</method-name>
+			<parameter-list>
+				<parameter name="groupId" type="long" />
+				<parameter name="privateLayout" type="boolean" />
+				<parameter name="layoutId" type="long" />
+				<parameter name="typeSettings" type="java.lang.String" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="message-boards-category">
+		<method type="add">
+			<clazz>com.liferay.portlet.messageboards.service.MBCategoryLocalServiceUtil</clazz>
+			<method-name>addCategory</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="parentCategoryId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="displayStyle" type="java.lang.String" />
+				<parameter name="emailAddress" type="java.lang.String" />
+				<parameter name="inProtocol" type="java.lang.String" />
+				<parameter name="inServerName" type="java.lang.String" />
+				<parameter name="inServerPort" type="int" />
+				<parameter name="inUseSSL" type="boolean" />
+				<parameter name="inUserName" type="java.lang.String" />
+				<parameter name="inPassword" type="java.lang.String" />
+				<parameter name="inReadInterval" type="int" />
+				<parameter name="outEmailAddress" type="java.lang.String" />
+				<parameter name="outCustom" type="boolean" />
+				<parameter name="outServerName" type="java.lang.String" />
+				<parameter name="outServerPort" type="int" />
+				<parameter name="outUseSSL" type="boolean" />
+				<parameter name="outUserName" type="java.lang.String" />
+				<parameter name="outPassword" type="java.lang.String" />
+				<parameter name="allowAnonymous" type="boolean" />
+				<parameter name="mailingListActive" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.messageboards.service.MBCategoryLocalServiceUtil</clazz>
+			<method-name>updateCategory</method-name>
+			<parameter-list>
+				<parameter name="categoryId" type="long" />
+				<parameter name="parentCategoryId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="displayStyle" type="java.lang.String" />
+				<parameter name="emailAddress" type="java.lang.String" />
+				<parameter name="inProtocol" type="java.lang.String" />
+				<parameter name="inServerName" type="java.lang.String" />
+				<parameter name="inServerPort" type="int" />
+				<parameter name="inUseSSL" type="boolean" />
+				<parameter name="inUserName" type="java.lang.String" />
+				<parameter name="inPassword" type="java.lang.String" />
+				<parameter name="inReadInterval" type="int" />
+				<parameter name="outEmailAddress" type="java.lang.String" />
+				<parameter name="outCustom" type="boolean" />
+				<parameter name="outServerName" type="java.lang.String" />
+				<parameter name="outServerPort" type="int" />
+				<parameter name="outUseSSL" type="boolean" />
+				<parameter name="outUserName" type="java.lang.String" />
+				<parameter name="outPassword" type="java.lang.String" />
+				<parameter name="allowAnonymous" type="boolean" />
+				<parameter name="mailingListActive" type="boolean" />
+				<parameter name="mergeWithParentCategory" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="message-boards-message">
+		<method type="add">
+			<clazz>com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil</clazz>
+			<method-name>addMessage</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="userName" type="java.lang.String" />
+				<parameter name="groupId" type="long" />
+				<parameter name="categoryId" type="long" />
+				<parameter name="threadId" type="long" />
+				<parameter name="parentMessageId" type="long" />
+				<parameter name="subject" type="java.lang.String" />
+				<parameter name="body" type="java.lang.String" />
+				<parameter name="format" type="java.lang.String" />
+				<parameter name="inputStreamOVPs" type="java.util.List&lt;com.liferay.portal.kernel.util.ObjectValuePair&lt;java.lang.String, java.io.InputStream&gt;&gt;" />
+				<parameter name="anonymous" type="boolean" />
+				<parameter name="priority" type="double" />
+				<parameter name="allowPingbacks" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.messageboards.service.MBMessageLocalServiceUtil</clazz>
+			<method-name>updateMessage</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="messageId" type="long" />
+				<parameter name="subject" type="java.lang.String" />
+				<parameter name="body" type="java.lang.String" />
+				<parameter name="inputStreamOVPs" type="java.util.List&lt;com.liferay.portal.kernel.util.ObjectValuePair&lt;java.lang.String, java.io.InputStream&gt;&gt;" />
+				<parameter name="existingFiles" type="java.util.List&lt;java.lang.String&gt;" />
+				<parameter name="priority" type="double" />
+				<parameter name="allowPingbacks" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="message-boards-thread">
+		<method type="add">
+			<clazz>com.liferay.portlet.messageboards.service.MBThreadLocalServiceUtil</clazz>
+			<method-name>addThread</method-name>
+			<parameter-list>
+				<parameter name="categoryId" type="long" />
+				<parameter name="message" type="com.liferay.portlet.messageboards.model.MBMessage" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.messageboards.service.MBThreadLocalServiceUtil</clazz>
+			<method-name>updateThread</method-name>
+			<parameter-list>
+				<parameter name="threadId" type="long" />
+				<parameter name="viewCount" type="int" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="organization">
+		<method type="add">
+			<clazz>com.liferay.portal.service.OrganizationLocalServiceUtil</clazz>
+			<method-name>addOrganization</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="parentOrganizationId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="recursable" type="boolean" />
+				<parameter name="regionId" type="long" />
+				<parameter name="countryId" type="long" />
+				<parameter name="statusId" type="int" />
+				<parameter name="comments" type="java.lang.String" />
+				<parameter name="site" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portal.service.OrganizationLocalServiceUtil</clazz>
+			<method-name>updateOrganization</method-name>
+			<parameter-list>
+				<parameter name="companyId" type="long" />
+				<parameter name="organizationId" type="long" />
+				<parameter name="parentOrganizationId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="type" type="java.lang.String" />
+				<parameter name="recursable" type="boolean" />
+				<parameter name="regionId" type="long" />
+				<parameter name="countryId" type="long" />
+				<parameter name="statusId" type="int" />
+				<parameter name="comments" type="java.lang.String" />
+				<parameter name="site" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="site">
+		<method type="add">
+			<clazz>com.liferay.portal.service.GroupLocalServiceUtil</clazz>
+			<method-name>addGroup</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="parentGroupId" type="long" />
+				<parameter name="className" type="java.lang.String" />
+				<parameter name="classPK" type="long" />
+				<parameter name="liveGroupId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="type" type="int" />
+				<parameter name="manualMembership" type="boolean" />
+				<parameter name="membershipRestriction" type="int" />
+				<parameter name="friendlyURL" type="java.lang.String" />
+				<parameter name="site" type="boolean" />
+				<parameter name="active" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portal.service.GroupLocalServiceUtil</clazz>
+			<method-name>updateGroup</method-name>
+			<parameter-list>
+				<parameter name="groupId" type="long" />
+				<parameter name="parentGroupId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="type" type="int" />
+				<parameter name="manualMembership" type="boolean" />
+				<parameter name="membershipRestriction" type="int" />
+				<parameter name="friendlyURL" type="java.lang.String" />
+				<parameter name="active" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+		<entry name="team">
+		<method type="add">
+			<clazz>com.liferay.portal.service.TeamLocalServiceUtil</clazz>
+			<method-name>addTeam</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="groupId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portal.service.TeamLocalServiceUtil</clazz>
+			<method-name>updateTeam</method-name>
+			<parameter-list>
+				<parameter name="teamId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="user">
+		<method type="add">
+			<clazz>com.liferay.portal.service.UserLocalServiceUtil</clazz>
+			<method-name>addUser</method-name>
+			<parameter-list>
+				<parameter name="creatorUserId" type="long" />
+				<parameter name="companyId" type="long" />
+				<parameter name="autoPassword" type="boolean" />
+				<parameter name="password1" type="java.lang.String" />
+				<parameter name="password2" type="java.lang.String" />
+				<parameter name="autoScreenName" type="boolean" />
+				<parameter name="screenName" type="java.lang.String" />
+				<parameter name="emailAddress" type="java.lang.String" />
+				<parameter name="facebookId" type="long" />
+				<parameter name="openId" type="java.lang.String" />
+				<parameter name="locale" type="java.util.Locale" />
+				<parameter name="firstName" type="java.lang.String" />
+				<parameter name="middleName" type="java.lang.String" />
+				<parameter name="lastName" type="java.lang.String" />
+				<parameter name="prefixId" type="int" />
+				<parameter name="suffixId" type="int" />
+				<parameter name="male" type="boolean" />
+				<parameter name="birthdayMonth" type="int" />
+				<parameter name="birthdayDay" type="int" />
+				<parameter name="birthdayYear" type="int" />
+				<parameter name="jobTitle" type="java.lang.String" />
+				<parameter name="groupIds" type="long[]" />
+				<parameter name="organizationIds" type="long[]" />
+				<parameter name="roleIds" type="long[]" />
+				<parameter name="userGroupIds" type="long[]" />
+				<parameter name="sendEmail" type="boolean" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portal.service.UserLocalServiceUtil</clazz>
+			<method-name>updateUser</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="oldPassword" type="java.lang.String" />
+				<parameter name="newPassword1" type="java.lang.String" />
+				<parameter name="newPassword2" type="java.lang.String" />
+				<parameter name="passwordReset" type="boolean" />
+				<parameter name="reminderQueryQuestion" type="java.lang.String" />
+				<parameter name="reminderQueryAnswer" type="java.lang.String" />
+				<parameter name="screenName" type="java.lang.String" />
+				<parameter name="emailAddress" type="java.lang.String" />
+				<parameter name="facebookId" type="long" />
+				<parameter name="openId" type="java.lang.String" />
+				<parameter name="languageId" type="java.lang.String" />
+				<parameter name="timeZoneId" type="java.lang.String" />
+				<parameter name="greeting" type="java.lang.String" />
+				<parameter name="comments" type="java.lang.String" />
+				<parameter name="firstName" type="java.lang.String" />
+				<parameter name="middleName" type="java.lang.String" />
+				<parameter name="lastName" type="java.lang.String" />
+				<parameter name="prefixId" type="int" />
+				<parameter name="suffixId" type="int" />
+				<parameter name="male" type="boolean" />
+				<parameter name="birthdayMonth" type="int" />
+				<parameter name="birthdayDay" type="int" />
+				<parameter name="birthdayYear" type="int" />
+				<parameter name="smsSn" type="java.lang.String" />
+				<parameter name="aimSn" type="java.lang.String" />
+				<parameter name="facebookSn" type="java.lang.String" />
+				<parameter name="icqSn" type="java.lang.String" />
+				<parameter name="jabberSn" type="java.lang.String" />
+				<parameter name="msnSn" type="java.lang.String" />
+				<parameter name="mySpaceSn" type="java.lang.String" />
+				<parameter name="skypeSn" type="java.lang.String" />
+				<parameter name="twitterSn" type="java.lang.String" />
+				<parameter name="ymSn" type="java.lang.String" />
+				<parameter name="jobTitle" type="java.lang.String" />
+				<parameter name="groupIds" type="long[]" />
+				<parameter name="organizationIds" type="long[]" />
+				<parameter name="roleIds" type="long[]" />
+				<parameter name="userGroupRoles" type="java.util.List&lt;com.liferay.portal.model.UserGroupRole&gt;" />
+				<parameter name="userGroupIds" type="long[]" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="vocabulary">
+		<method type="add">
+			<clazz>com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil</clazz>
+			<method-name>addVocabulary</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="settings" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil</clazz>
+			<method-name>updateVocabulary</method-name>
+			<parameter-list>
+				<parameter name="vocabularyId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="titleMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="descriptionMap" type="java.util.Map&lt;java.util.Locale, java.lang.String&gt;" />
+				<parameter name="settings" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="wiki-node">
+		<method type="add">
+			<clazz>com.liferay.portlet.wiki.service.WikiNodeLocalServiceUtil</clazz>
+			<method-name>addNode</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.wiki.service.WikiNodeLocalServiceUtil</clazz>
+			<method-name>updateNode</method-name>
+			<parameter-list>
+				<parameter name="nodeId" type="long" />
+				<parameter name="name" type="java.lang.String" />
+				<parameter name="description" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+	<entry name="wiki-page">
+		<method type="add">
+			<clazz>com.liferay.portlet.wiki.service.WikiPageLocalServiceUtil</clazz>
+			<method-name>addPage</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="nodeId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="version" type="double" />
+				<parameter name="content" type="java.lang.String" />
+				<parameter name="summary" type="java.lang.String" />
+				<parameter name="minorEdit" type="boolean" />
+				<parameter name="format" type="java.lang.String" />
+				<parameter name="head" type="boolean" />
+				<parameter name="parentTitle" type="java.lang.String" />
+				<parameter name="redirectTitle" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+		<method type="update">
+			<clazz>com.liferay.portlet.wiki.service.WikiPageLocalServiceUtil</clazz>
+			<method-name>updatePage</method-name>
+			<parameter-list>
+				<parameter name="userId" type="long" />
+				<parameter name="nodeId" type="long" />
+				<parameter name="title" type="java.lang.String" />
+				<parameter name="version" type="double" />
+				<parameter name="content" type="java.lang.String" />
+				<parameter name="summary" type="java.lang.String" />
+				<parameter name="minorEdit" type="boolean" />
+				<parameter name="format" type="java.lang.String" />
+				<parameter name="parentTitle" type="java.lang.String" />
+				<parameter name="redirectTitle" type="java.lang.String" />
+				<parameter name="serviceContext" type="com.liferay.portal.service.ServiceContext" />
+			</parameter-list>
+		</method>
+	</entry>
+</ns2:entryWrapperReader>
