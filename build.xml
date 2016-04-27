@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="data-manipulator-portlet" basedir="." default="deploy">
+    <!--<import file="../build-common-portlet.xml" /> -->
+	<property name="project.dir" value="." />
+
+	<property file="build.${user.name}.properties" />
+	<property file="build.${env.COMPUTERNAME}.properties" />
+	<property file="build.${env.HOST}.properties" />
+	<property file="build.${env.HOSTNAME}.properties" />
+	<property file="build.properties" />
+
+	<path id="lib.classpath">
+		<fileset dir="lib" includes="*.jar" />
+	</path> 
+
+	<path id="data.manipulator.classpath">
+		<path refid="lib.classpath" />
+		<fileset dir="${app.server.lib.global.dir}" includes="*.jar" />
+		<fileset dir="${app.server.lib.portal.dir}" includes="annotations.jar,commons-logging.jar,log4j.jar,util-bridges.jar,util-java.jar,util-taglib.jar" />
+		<fileset dir="lib" includes="*.jar" />
+		<fileset dir="${app.server.parent.dir}/osgi/modules" includes="*.jar" />
+	</path>
+
+	<taskdef classpathref="lib.classpath" resource="net/sf/antcontrib/antlib.xml" />
+	<taskdef classpathref="lib.classpath" resource="ise/antelope/tasks/antlib.xml" uri="antlib:ise.antelope.tasks" />
+
+	<property file="docroot/WEB-INF/liferay-plugin-package.properties" prefix="plugin-package" />
+
+	<property name="data.manipulator.version" value="${plugin-package.module-incremental-version}" />
+	<property name="data.manipulator.jars" value="${dm.required.jars},${plugin-package.portal-dependency-jars}" />
+	<property name="data.manipulator.tlds" value="${plugin-package.portal-dependency-tlds}" />
+
+	<property name="data.manipulator.war.file" value="dist/data-manipulator-${data.manipulator.version}.war" />
+
+	<target name="all">
+		<antcall target="clean" />
+		<antcall target="deploy" />
+	</target>
+
+	<target name="clean" description="clean">
+		<delete dir="dist" />
+
+		<delete dir="docroot/WEB-INF/classes" />
+		<delete dir="docroot/WEB-INF/lib" />
+		<delete dir="docroot/WEB-INF/tld" />
+
+		<delete failonerror="false" includeemptydirs="true">
+			<fileset dir="docroot" includes="**/.sass-cache/**" />
+			<fileset dir="docroot" includes="**/.sprite.png" />
+			<fileset dir="docroot" includes="**/.sprite.properties" />
+			<fileset dir="docroot" includes="**/Thumbs.db" />
+		</delete>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="docroot/WEB-INF/classes" />
+		<mkdir dir="docroot/WEB-INF/lib" />
+
+		<if>
+			<available file="overwrite" />
+			<then>
+				<copy overwrite="true" preservelastmodified="true" todir="docroot">
+					<fileset dir="overwrite" />
+				</copy>
+			</then>
+		</if>
+
+		<if>
+			<available file="docroot/WEB-INF/src/META-INF/portal-log4j.xml" />
+			<then>
+				<fileset dir="lib" id="log4j.jar.id" includes="log4j*.jar"/>
+				<property name="log4j.jar" refid="log4j.jar.id" />
+
+				<unzip
+					dest="docroot/WEB-INF/src/META-INF"
+					src="lib/${log4j.jar}"
+				>
+					<patternset
+						includes="**/log4j.dtd"
+					/>
+					<flattenmapper />
+				</unzip>
+			</then>
+		</if>
+
+		<copy todir="docroot/WEB-INF/lib">
+			<fileset dir="${app.server.lib.portal.dir}" includes="${data.manipulator.jars}" />
+		</copy>
+
+		<copy todir="docroot/WEB-INF/lib">
+			<fileset dir="${project.dir}/lib" includes="jodd*.jar,openpojo*.jar" />
+		</copy>
+
+		<if>
+			<available file="docroot/WEB-INF/lib/portal-impl.jar" />
+			<then>
+				<fail>
+.
+
+Detected inclusion of portal-impl.jar in WEB-INF/lib.
+
+portal-impl.jar is designed with a large number of singleton classes which are
+instantiated on the basis that they will exist alone in the application server.
+
+While compile time issues may be resolved, portlets cannot be made to work by
+simply adding portal-impl.jar, because doing so violates the above assumption,
+and the resulting problems will be extremely difficult to debug.
+
+Please find a solution that does not require portal-impl.jar.
+				</fail>
+			</then>
+		</if>
+
+		<antcall target="compile-java">
+			<param name="javac.classpathref" value="data.manipulator.classpath" />
+			<param name="javac.destdir" value="docroot/WEB-INF/classes" />
+			<param name="javac.srcdir" value="docroot/WEB-INF/src" />
+		</antcall>
+
+		<copy todir="docroot/WEB-INF/tld">
+			<fileset dir="${project.dir}/lib" includes="${data.manipulator.tlds}" />
+		</copy>
+
+		<if>
+			<and>
+				<available file="docroot/WEB-INF/src/content" />
+				<resourcecontains resource="docroot/WEB-INF/liferay-hook.xml" substring="&lt;language-properties&gt;content/Language*.properties&lt;/language-properties&gt;" />
+			</and>
+			<then>
+				<pathconvert pathsep="${line.separator}&#x9;" property="language.properties.elements">
+					<fileset dir="docroot/WEB-INF/src/content">
+						<include name="Language*.properties" />
+					</fileset>
+					<mapper>
+						<chainedmapper>
+							<flattenmapper />
+							<globmapper
+								from="Language*.properties"
+								to="&lt;language-properties&gt;content/Language*.properties&lt;/language-properties&gt;"
+							/>
+						</chainedmapper>
+					</mapper>
+				</pathconvert>
+
+				<copy file="docroot/WEB-INF/liferay-hook.xml" overwrite="true" tofile="docroot/WEB-INF/liferay-hook.xml.processed">
+					<filterchain>
+						<tokenfilter>
+							<replacestring from="&lt;language-properties&gt;content/Language*.properties&lt;/language-properties&gt;" to="${language.properties.elements}" />
+						</tokenfilter>
+					</filterchain>
+				</copy>
+			</then>
+		</if>
+	</target>
+
+	<target name="compile-java">
+		<copy todir="${javac.destdir}">
+			<fileset dir="${javac.srcdir}" excludes="**/*.java" />
+		</copy>
+
+		<javac
+			classpathref="${javac.classpathref}"
+			compiler="${javac.compiler}"
+			debug="${javac.debug}"
+			deprecation="${javac.deprecation}"
+			destdir="${javac.destdir}"
+			encoding="${javac.encoding}"
+			includeAntRuntime="false"
+			nowarn="${javac.nowarn}"
+			srcdir="${javac.srcdir}"
+		/>
+	</target>
+
+	<target name="deploy" depends="war">
+		<if>
+			<isset property="app.server.auto.deploy.dir" />
+			<then>
+				<copy file="${data.manipulator.war.file}" todir="${app.server.auto.deploy.dir}" />
+			</then>
+		</if>
+	</target>
+
+	<target name="war" depends="compile">
+		<mkdir dir="dist" />
+
+		<delete file="${data.manipulator.war.file}" />
+
+		<zip
+			basedir="docroot"
+			destfile="${data.manipulator.war.file}"
+			excludes="${liferay-hook.xml.excludes},${plugins.war.excludes}"
+		>
+			<zipfileset
+				dir="docroot"
+				fullpath="WEB-INF/liferay-hook.xml"
+				includes="WEB-INF/liferay-hook.xml.processed"
+			/>
+		</zip>
+	</target>
+</project>

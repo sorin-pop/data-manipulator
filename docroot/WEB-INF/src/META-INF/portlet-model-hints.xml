@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.tool.datamanipulator.handler.BaseHandler">
+		<field name="display-date-from" type="Date" />
+		<field name="display-date-to" type="Date" />
+		<field name="end-date-from" type="Date" />
+		<field name="end-date-to" type="Date" />
+		<field name="expiration-date-from" type="Date" />
+		<field name="expiration-date-to" type="Date" />
+		<field name="start-date-from" type="Date" />
+		<field name="start-date-to" type="Date" />
+		<field name="review-date-from" type="Date" />
+		<field name="review-date-to" type="Date" />
+	</model>
+</model-hints>
