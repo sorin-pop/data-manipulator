@@ -32,7 +32,7 @@ import com.liferay.tool.datamanipulator.handler.BaseHandler;
 /**
  * @author Yg0R2
  */
-@Handler(type = HandlerType.CONTENT, displayName = "Wiki Handler")
+@Handler(type = HandlerType.CONTENT, displayName = "Wikis")
 public class WikiNodeHandler extends BaseHandler {
 
 	public WikiNodeHandler() throws Exception {
@@ -43,9 +43,9 @@ public class WikiNodeHandler extends BaseHandler {
 	public DisplayFields getDisplayFields(long groupId, long companyId) throws Exception {
 		DisplayFields displayFields = new DisplayFields();
 
-		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 		displayFields.addInfo(
 			getDisplayFieldName(FieldKeys.MULTI_SELECT_USER_LIST));
+		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 
 		displayFields.addSeparator("");
 
