@@ -38,7 +38,7 @@ import com.liferay.tool.datamanipulator.handler.BaseHandler;
 /**
  * @author Yg0R2
  */
-@Handler(type = HandlerType.CONTENT, displayName = "Bookmarks Handler")
+@Handler(type = HandlerType.CONTENT, displayName = "Bookmarks")
 public class BookmarkFolderHandler extends BaseHandler {
 
 	public BookmarkFolderHandler() throws Exception {
@@ -49,9 +49,9 @@ public class BookmarkFolderHandler extends BaseHandler {
 	public DisplayFields getDisplayFields(long groupId, long companyId) throws Exception {
 		DisplayFields displayFields = new DisplayFields();
 
-		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 		displayFields.addInfo(
 			getDisplayFieldName(FieldKeys.MULTI_SELECT_USER_LIST));
+		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 
 		displayFields.addSeparator("");
 
