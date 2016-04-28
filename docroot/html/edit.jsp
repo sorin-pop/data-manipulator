@@ -302,7 +302,7 @@
 	%>
 
 	<aui:button-row>
-		<aui:button type="submit" value="save" />
+		<aui:button type="submit" value="go" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
 	</aui:button-row>
