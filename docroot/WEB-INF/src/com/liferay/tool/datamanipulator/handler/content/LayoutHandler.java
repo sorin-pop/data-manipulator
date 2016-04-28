@@ -41,7 +41,7 @@ import com.liferay.tool.datamanipulator.handler.BaseHandler;
 /**
  * @author Yg0R2
  */
-@Handler(type = HandlerType.CONTENT, displayName = "Layout Handler")
+@Handler(type = HandlerType.CONTENT, displayName = "Pages")
 public class LayoutHandler extends BaseHandler {
 
 	public static final String LAYOUT_TEMPLATE_SELECT_LIST =
@@ -57,9 +57,9 @@ public class LayoutHandler extends BaseHandler {
 	public DisplayFields getDisplayFields(long groupId, long companyId) throws Exception {
 		DisplayFields displayFields = new DisplayFields();
 
-		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 		displayFields.addInfo(
 			getDisplayFieldName(FieldKeys.MULTI_SELECT_USER_LIST));
+		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 
 		displayFields.addSeparator("");
 
@@ -69,7 +69,7 @@ public class LayoutHandler extends BaseHandler {
 
 		displayFields.addSeparator("");
 
-		displayFields.addLabel(getDisplayFieldName());
+		//displayFields.addLabel(getDisplayFieldName());
 
 		displayFields.addSelectList(
 			LAYOUT_TEMPLATE_SELECT_LIST, _getLayoutTemplates());
@@ -214,10 +214,10 @@ public class LayoutHandler extends BaseHandler {
 			new TreeMap<String, List<KeyValuePair>>();
 
 		List<KeyValuePair> privateLayoutNameIdPairs = _getLayoutNameIdPairs(
-			groupId, false);
+			groupId, true);
 
 		List<KeyValuePair> publicLayoutNameIdPairs = _getLayoutNameIdPairs(
-			groupId, true);
+			groupId, false);
 
 		layoutNameIdPairs.put("public-pages", publicLayoutNameIdPairs);
 
@@ -227,12 +227,12 @@ public class LayoutHandler extends BaseHandler {
 	}
 
 	private List<KeyValuePair> _getLayoutNameIdPairs(
-		long groupId, boolean isPublic) throws SystemException {
+		long groupId, boolean privateLayout) throws SystemException {
 
 		List<KeyValuePair> layoutNameIdPairs = new ArrayList<KeyValuePair>();
 
 		List<Layout> layouts = LayoutLocalServiceUtil.getLayouts(
-			groupId, isPublic);
+			groupId, privateLayout);
 
 		for (Layout layout : layouts) {
 			if (layout.isHidden() || !layout.isRootLayout() ||
@@ -243,7 +243,7 @@ public class LayoutHandler extends BaseHandler {
 			}
 
 			String layoutId = String.valueOf(layout.getLayoutId());
-			String layoutName = layout.getName();
+			String layoutName = layout.getNameCurrentValue(); //getName();
 
 			layoutNameIdPairs.add(
 				new KeyValuePair(layoutName, layoutId));
@@ -265,7 +265,7 @@ public class LayoutHandler extends BaseHandler {
 		for (LayoutPrototype layoutPrototype : layoutPrototypes) {
 			layoutPrototypeNameIdPairs.add(
 				new KeyValuePair(
-					layoutPrototype.getName(),
+					layoutPrototype.getNameCurrentValue(),
 					String.valueOf(layoutPrototype.getLayoutPrototypeId())));
 		}
 
