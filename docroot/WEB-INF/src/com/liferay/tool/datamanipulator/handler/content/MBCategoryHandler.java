@@ -42,7 +42,7 @@ import com.liferay.tool.datamanipulator.util.GetterUtil;
 /**
  * @author Yg0R2
  */
-@Handler(type = HandlerType.CONTENT, displayName = "Message Boards Handler")
+@Handler(type = HandlerType.CONTENT, displayName = "Message Boards")
 public class MBCategoryHandler extends BaseHandler {
 
 	public MBCategoryHandler() throws Exception {
@@ -55,9 +55,9 @@ public class MBCategoryHandler extends BaseHandler {
 	public DisplayFields getDisplayFields(long groupId, long companyId) throws Exception {
 		DisplayFields displayFields = new DisplayFields();
 
-		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 		displayFields.addInfo(
 			getDisplayFieldName(FieldKeys.MULTI_SELECT_USER_LIST));
+		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
 
 		displayFields.addSeparator("");
 
@@ -204,7 +204,7 @@ public class MBCategoryHandler extends BaseHandler {
 		}
 
 		String storeProtocol = (String)GetterUtil.getFieldValue(
-			"com.liferay.portal.kernel.util.PropsValues",
+			"com.liferay.portal.util.PropsValues",
 			"MAIL_SESSION_MAIL_STORE_PROTOCOL");
 
 		if (!storeProtocol.equals(Account.PROTOCOL_POPS)) {
@@ -214,7 +214,7 @@ public class MBCategoryHandler extends BaseHandler {
 		String storePrefix = "mail." + storeProtocol + ".";
 
 		String transportProtocol = (String)GetterUtil.getFieldValue(
-			"com.liferay.portal.kernel.util.PropsValues",
+			"com.liferay.portal.util.PropsValues",
 			"MAIL_SESSION_MAIL_TRANSPORT_PROTOCOL");
 
 		if (!transportProtocol.equals(Account.PROTOCOL_SMTPS)) {

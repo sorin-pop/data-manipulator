@@ -33,7 +33,7 @@ import com.liferay.tool.datamanipulator.handler.BaseHandler;
 /**
  * @author Yg0R2
  */
-@Handler(type = HandlerType.CONTENT, displayName = "Tag Handler")
+@Handler(type = HandlerType.CONTENT, displayName = "Tags")
 public class TagHandler extends BaseHandler {
 
 	public TagHandler() throws Exception {
@@ -43,15 +43,15 @@ public class TagHandler extends BaseHandler {
 	@Override
 	public DisplayFields getDisplayFields(long groupId, long companyId) throws Exception {
 		DisplayFields displayFields = new DisplayFields();
-
-		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
-
+		
 		displayFields.addInfo(
 			getDisplayFieldName(FieldKeys.MULTI_SELECT_USER_LIST));
 
+		displayFields.addUserMultiSelect(FieldKeys.MULTI_SELECT_USER_LIST);
+
 		displayFields.addSeparator("");
 
-		displayFields.addLabel(getDisplayFieldName());
+		//displayFields.addLabel(getDisplayFieldName());
 
 		displayFields.addCount(
 			getDisplayFieldName(FieldKeys.INPUT_COUNT), true);
@@ -65,15 +65,14 @@ public class TagHandler extends BaseHandler {
 	@Override
 	protected Class<?>[] getAddArgClazzs() {
 		return new Class<?>[] {
-			Long.TYPE, String.class,
-			Array.newInstance(String.class, 0).getClass(), ServiceContext.class
+			Long.TYPE, Long.TYPE, String.class, ServiceContext.class
 		};
 	}
 
 	@Override
 	protected String[] getAddArgNames() {
 		return new String[] {
-			"userId", "name", "tagProperties", "serviceContext"
+			"userId", "groupId", "name", "serviceContext"
 		};
 	}
 
