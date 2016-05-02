@@ -36,6 +36,7 @@ import com.liferay.tool.datamanipulator.context.RequestContext;
 import com.liferay.tool.datamanipulator.displayfield.DisplayFields;
 import com.liferay.tool.datamanipulator.displayfield.FieldKeys;
 import com.liferay.tool.datamanipulator.handler.BaseHandler;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 /**
  * @author Yg0R2
@@ -199,7 +200,7 @@ public class DMFolderHandler extends BaseHandler {
 
 		List<DLFolder> dlFolderList =
 			DLFolderLocalServiceUtil.getFolders(
-				groupId, DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
+				groupId, DLFolderConstants.DEFAULT_PARENT_FOLDER_ID, WorkflowConstants.STATUS_APPROVED, false, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
 		List<KeyValuePair> dlFolderNameIdList = new ArrayList<KeyValuePair>(
 			dlFolderList.size() + 1);
