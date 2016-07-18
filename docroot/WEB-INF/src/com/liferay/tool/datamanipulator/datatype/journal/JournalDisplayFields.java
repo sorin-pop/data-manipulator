@@ -69,10 +69,10 @@ public class JournalDisplayFields {
 		fields.addSeparator();
 
 		fields.addInfo("folder-generation-settings");
+		fields.addDepth(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);
 		fields.addCount(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);
 		fields.addUpdateLevel(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);
-		fields.addDepth(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);
-		fields.addSubCount(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);
+		//fields.addSubCount(EntryTypeKeys.GENERAL_JOURNAL_FOLDER);  --I took it out because seems to have the same meaning as the first field, and didn't seem to have any effect whatsoever
 		fields.addSeparator();
 
 		fields.addInfo("article-generation-settings");

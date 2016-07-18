@@ -41,8 +41,7 @@ public class DataManipulatorRunner extends Thread {
 		long startTime = System.currentTimeMillis();
 
 		_log.error(
-			(Thread.currentThread()).getName() + " start add entries at " +
-			String.valueOf(startTime) + StringPool.PERIOD);
+			(Thread.currentThread()).getName() + " generation process started.");
 
 		try {
 			_handler.startGenerate(_requestProcessor);
@@ -58,8 +57,7 @@ public class DataManipulatorRunner extends Thread {
 		long duration = endTime - startTime;
 
 		_log.error(
-			(Thread.currentThread()).getName() + " finish add entries at " +
-			String.valueOf(endTime)+ StringPool.PERIOD);
+			(Thread.currentThread()).getName() + " generation process finished.");
 
 			
 		_log.error(
